@@ -1,0 +1,11 @@
+* {
+  font-family: '';
+}
+
+#nav {
+  background-color: #f3f6ff;
+  padding: 20px 40px;
+  text-align: center;
+  color: #8bacff;
+  font-weight: bold;
+}

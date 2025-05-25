@@ -1,0 +1,43 @@
+#post-detail-wrapper {
+  margin: 40px auto;
+  padding: 30px;
+  width: 700px;
+  background-color: #f6f9ff;
+  border: 1px solid #b3c8ff;
+  border-radius: 12px;
+}
+
+#post-detail-title {
+  font-size: 27px;
+  color: #96b4ff;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+#post-detail-date {
+  font-size: 14px;
+  color: #6c6c6c;
+  margin-bottom: 20px;
+}
+
+#post-detail-content {
+  font-size: 17px;
+  color: #6c6c6c;
+  white-space: pre-line;
+  border-top: 1px solid #b3c8ff;
+  padding-top: 20px;
+}
+
+#back-button {
+  margin-top: 30px;
+  background-color: #b3c8ff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 15px;
+  border-radius: 6px;
+}
+
+#back-button:hover {
+  background-color: #94b3ff;
+}

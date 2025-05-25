@@ -1,0 +1,51 @@
+#post-list-wrapper {
+  margin: 20px;
+  padding: 20px;
+}
+
+#post-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  color: #6c6c6c;
+  background-color: #f6f9ff;
+  border-radius: 6px;
+}
+
+#post-table th,
+#post-table td {
+  padding: 12px;
+  border-bottom: 1px solid #c9d8ff;
+}
+
+#post-table th {
+  background-color: #e0e9ff;
+  color: #6c6c6c;
+}
+
+#post-title {
+  text-decoration: none;
+  color: #96b4ff;
+  font-weight: bold;
+}
+
+#post-title:hover {
+  text-decoration: underline;
+}
+
+#post-button {
+  margin-bottom: 10px;
+  margin-top: 30px;
+  float: right;
+
+  background-color: #b3c8ff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 15px;
+  border-radius: 6px;
+}
+
+#post-button:hover {
+  background-color: #94b3ff;
+}
