@@ -30,7 +30,7 @@ function PostList({ posts }) {
                 <tr key={post.id}>
                   <td>{posts.length - index}</td>
                   <td>
-                    <Link to={`/post/${post.id}`} id="post-title">
+                    <Link to={`/posts/${post.id}`} id="post-title">
                       {post.title}
                     </Link>
                   </td>

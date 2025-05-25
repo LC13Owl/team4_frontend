@@ -25,7 +25,7 @@
 
 #post-title {
   text-decoration: none;
-  color: #96b4ff;
+  color: #87a9ff;
   font-weight: bold;
 }
 
@@ -38,14 +38,16 @@
   margin-top: 30px;
   float: right;
 
-  background-color: #b3c8ff;
-  color: white;
-  border: none;
+  border: 1.5px solid #94b3ff;
+  background-color: white;
+  color: #799fff;
+  font-weight: 550;
   padding: 10px 20px;
   font-size: 15px;
   border-radius: 6px;
 }
 
 #post-button:hover {
+  color: white;
   background-color: #94b3ff;
 }

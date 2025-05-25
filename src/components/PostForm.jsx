@@ -5,29 +5,35 @@ import './PostForm.css';
 function PostForm({ onSubmit }) {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
-  const [nickname, setNickname] = useState('');
-  const [emotion, setEmotion] = useState('');
-  const [tags, setTags] = useState('');
-  const [question, setQuestion] = useState('');
-  const [isPublic, setIsPublic] = useState(true);
+  // const [nickname, setNickname] = useState('');
+  // const [emotion, setEmotion] = useState('');
+  // const [tags, setTags] = useState('');
+  // const [question, setQuestion] = useState('');
+  // const [photoUrl, setPhotoUrl] = useState('');
+  // const [isPublic, setIsPublic] = useState(true);
   const navigate = useNavigate();
 
   const submit = async (e) => {
     e.preventDefault();
 
+    if (!title.trim() || !content.trim()) {
+      alert('제목과 내용을 모두 입력해주세요.');
+      return;
+    }
+
     const newPost = {
       title,
       content,
-      nickname,
-      emotion,
-      tags,
-      question,
-      photoUrl,
-      isPublic,
+      // nickname,
+      // emotion,
+      // tags,
+      // question,
+      // photoUrl,
+      // isPublic,
     };
 
     try {
-      const response = await fetch('/diaries/create', {
+      const response = await fetch('http://localhost:/diaries/create', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -36,7 +42,6 @@ function PostForm({ onSubmit }) {
       });
 
       if (!response.ok) throw new Error('서버 응답 오류');
-
       const result = await response.json();
       onSubmit(result);
       console.log('응답:', result);
@@ -44,11 +49,12 @@ function PostForm({ onSubmit }) {
 
       setTitle('');
       setContent('');
-      setNickname('');
-      setEmotion('');
-      setTags('');
-      setQuestion('');
-      setIsPublic(true);
+      // setNickname('');
+      // setEmotion('');
+      // setTags('');
+      // setPhotoUrl('');
+      // setQuestion('');
+      // setIsPublic(true);
 
       navigate('/');
     } catch (error) {
@@ -94,6 +100,12 @@ function PostForm({ onSubmit }) {
       /><br /> */}
 
       {/* <input
+        placeholder="사진 URL"
+        value={photoUrl}
+        onChange={(e) => setPhotoUrl(e.target.value)}
+      /><br /> */}
+
+      {/* <input
         placeholder="질문"
         value={question}
         onChange={(e) => setQuestion(e.target.value)}
@@ -111,10 +123,14 @@ function PostForm({ onSubmit }) {
       <br /><br /> */}
 
       <div id="two-button">
-        <button id="button" onClick={() => navigate(-1)}>
+        <button
+          type="button"
+          className="form-button"
+          onClick={() => navigate(-1)}
+        >
           목록 보기
         </button>
-        <button type="submit" id="button">
+        <button type="submit" className="form-button">
           게시하기
         </button>
       </div>

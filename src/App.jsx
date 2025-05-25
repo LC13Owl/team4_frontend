@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useState } from 'react';
 import './App.css';
 import PostForm from './components/PostForm.jsx';
 import PostList from './components/PostList.jsx';
@@ -8,7 +8,7 @@ import PostDetail from './components/PostDetail.jsx';
 function App() {
   const [posts, setPosts] = useState([
     {
-      // 테스트 데이터
+      // 샘플 데이터
       id: 1,
       title: '첫 번째 일기',
       content: '맛있는 거 많이 먹어서 행복한 날이었다!',
@@ -22,22 +22,6 @@ function App() {
     },
   ]);
 
-  // useEffect(() => {
-  //   fetch("/diaries/read")
-  //     .then((res) => {
-  //       if (!res.ok) {
-  //         throw new Error("서버 응답 오류");
-  //       }
-  //       return res.json();
-  //     })
-  //     .then((data) => {
-  //       setPosts(data);
-  //     })
-  //     .catch((err) => {
-  //       console.error("불러오기 실패:", err);
-  //     });
-  // }, []);
-
   const addPost = (newPost) => {
     setPosts([newPost, ...posts]);
   };
@@ -46,13 +30,13 @@ function App() {
     <Router>
       <div id="nav">
         <h1>DIARY</h1>
-        <h4>TEAM4 게시판</h4>
+        <h4>Team4 게시판</h4>
       </div>
 
       <Routes>
         <Route path="/" element={<PostList posts={posts} />} />
         <Route path="/write" element={<PostForm onSubmit={addPost} />} />
-        <Route path="/post/:id" element={<PostDetail posts={posts} />} />
+        <Route path="/posts/:id" element={<PostDetail posts={posts} />} />
       </Routes>
     </Router>
   );
