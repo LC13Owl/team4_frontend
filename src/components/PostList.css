@@ -1,9 +1,9 @@
-#post-list-wrapper {
+.post-list {
   margin: 20px;
   padding: 20px;
 }
 
-#post-table {
+.post-table {
   width: 100%;
   border-collapse: collapse;
   text-align: center;
@@ -12,28 +12,28 @@
   border-radius: 6px;
 }
 
-#post-table th,
-#post-table td {
+.post-table th,
+.post-table td {
   padding: 12px;
   border-bottom: 1px solid #c9d8ff;
 }
 
-#post-table th {
+.post-table th {
   background-color: #e0e9ff;
   color: #6c6c6c;
 }
 
-#post-title {
+.post-title {
   text-decoration: none;
   color: #87a9ff;
   font-weight: bold;
 }
 
-#post-title:hover {
+.post-title:hover {
   text-decoration: underline;
 }
 
-#post-button {
+.post-button {
   margin-bottom: 10px;
   margin-top: 30px;
   float: right;
@@ -47,7 +47,34 @@
   border-radius: 6px;
 }
 
-#post-button:hover {
+.post-button:hover {
   color: white;
   background-color: #94b3ff;
+}
+
+.emotion-filter {
+  font-size: 18px;
+  font-weight: 400;
+  color: #94b3ff;
+
+  margin-right: 10px;
+  margin-bottom: 20px;
+  background-color: white;
+  border: 1.5px solid #94b3ff;
+  border-radius: 6px;
+}
+
+.emotion-filter:hover {
+  color: white;
+  background-color: #94b3ff;
+}
+.emotion-filter.selected {
+  background-color: #94b3ff;
+  border: 1.5px solid #94b3ff;
+  border-radius: 6px;
+  color: white;
+}
+
+.allFilter {
+  margin-top: 35px;
 }

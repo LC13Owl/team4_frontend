@@ -5,13 +5,10 @@ import './PostForm.css';
 function PostForm({ onSubmit }) {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
-  // const [nickname, setNickname] = useState('');
-  // const [emotion, setEmotion] = useState('');
-  // const [tags, setTags] = useState('');
-  // const [question, setQuestion] = useState('');
-  // const [photoUrl, setPhotoUrl] = useState('');
-  // const [isPublic, setIsPublic] = useState(true);
+  const [emotion, setEmotion] = useState('');
+
   const navigate = useNavigate();
+  const emotions = ['😀', '😑', '😭', '😡'];
 
   const submit = async (e) => {
     e.preventDefault();
@@ -24,37 +21,30 @@ function PostForm({ onSubmit }) {
     const newPost = {
       title,
       content,
-      // nickname,
-      // emotion,
-      // tags,
-      // question,
-      // photoUrl,
-      // isPublic,
+      emotion,
     };
 
     try {
-      const response = await fetch('http://localhost:/diaries/create', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(newPost),
-      });
+      const response = await fetch(
+        'https://localhost:포트번호/diaries/create',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(newPost),
+        }
+      );
 
       if (!response.ok) throw new Error('서버 응답 오류');
-      const result = await response.json();
+      const result = await response.text();
       onSubmit(result);
       console.log('응답:', result);
-      alert('일기 저장 완료');
+      alert(result);
 
       setTitle('');
       setContent('');
-      // setNickname('');
-      // setEmotion('');
-      // setTags('');
-      // setPhotoUrl('');
-      // setQuestion('');
-      // setIsPublic(true);
+      setEmotion('');
 
       navigate('/');
     } catch (error) {
@@ -81,48 +71,22 @@ function PostForm({ onSubmit }) {
       />
       <br />
 
-      {/* <input
-        placeholder="닉네임"
-        value={nickname}
-        onChange={(e) => setNickname(e.target.value)}
-      /><br /> */}
+      <div className="emotion">
+        {emotions.map((emo) => (
+          <button
+            className={
+              emotion === emo ? 'selectEmotion selected' : 'selectEmotion'
+            }
+            type="button"
+            key={emo}
+            onClick={() => setEmotion(emo)}
+          >
+            {emo}
+          </button>
+        ))}
+      </div>
 
-      {/* <input
-        placeholder="감정"
-        value={emotion}
-        onChange={(e) => setEmotion(e.target.value)}
-      /><br /> */}
-
-      {/* <input
-        placeholder="태그"
-        value={tags}
-        onChange={(e) => setTags(e.target.value)}
-      /><br /> */}
-
-      {/* <input
-        placeholder="사진 URL"
-        value={photoUrl}
-        onChange={(e) => setPhotoUrl(e.target.value)}
-      /><br /> */}
-
-      {/* <input
-        placeholder="질문"
-        value={question}
-        onChange={(e) => setQuestion(e.target.value)}
-      /><br /> */}
-
-      {/* <label>
-        공개 여부: 
-        <input
-          type="checkbox"
-          checked={isPublic}
-          onChange={(e) => setIsPublic(e.target.checked)}
-        />
-        공개
-      </label>
-      <br /><br /> */}
-
-      <div id="two-button">
+      <div className="two-button">
         <button
           type="button"
           className="form-button"
