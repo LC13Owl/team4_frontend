@@ -11,7 +11,7 @@ function PostList() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const res = await fetch(`http://192.168.219.156:8080/diaries/read`, {
+        const res = await fetch(`http://192.168.0.7:8080/diaries/read`, {
           headers: {
             Accept: 'application/json',
           },

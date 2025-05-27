@@ -26,7 +26,7 @@ function PostForm({ onSubmit }) {
 
     try {
       const response = await fetch(
-        `http://192.168.219.156:8080/diaries/create`,
+        `http://192.168.0.7:8080/diaries/create`,
         {
           method: 'POST',
           headers: {

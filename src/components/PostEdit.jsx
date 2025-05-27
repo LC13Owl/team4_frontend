@@ -14,7 +14,7 @@ function PostEdit() {
 
   useEffect(() => {
     const fetchPost = async () => {
-      const res = await fetch(`http://192.168.219.156:8080/diaries/read/${id}`);
+      const res = await fetch(`http://192.168.0.7:8080/diaries/read/${id}`);
       const data = await res.json();
       setFormData({
         title: data.title,
@@ -37,7 +37,7 @@ function PostEdit() {
 
     try {
       const response = await fetch(
-        `http://192.168.219.156:8080/diaries/update/${id}`,
+        `http://192.168.0.7:8080/diaries/update/${id}`,
         {
           method: 'PUT',
           headers: {
@@ -49,7 +49,7 @@ function PostEdit() {
 
       if (response.ok) {
         alert('수정되었습니다.');
-        navigate(`/detail/${id}`);
+        navigate('/');
       } else {
         alert('수정 실패');
       }
