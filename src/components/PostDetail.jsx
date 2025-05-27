@@ -11,7 +11,7 @@ function PostDetail() {
     const fetchPost = async () => {
       try {
         const res = await fetch(
-          '192.168.219.156:8080/diaries/read/${id}',
+          `http://192.168.219.156:8080/diaries/read/${id}`,
           {
             headers: {
               'Content-Type': 'application/json',
@@ -40,7 +40,7 @@ function PostDetail() {
 
     try {
       const response = await fetch(
-        'https://localhost:포트번호/diaries/delete/${id}',
+        `http://192.168.219.156:8080/diaries/delete/${id}`,
         {
           method: 'DELETE',
         }

@@ -12,21 +12,19 @@ function PostEdit() {
   });
   const emotions = ['😀', '😑', '😭', '😡'];
 
-  // 기존 데이터 불러오기
   useEffect(() => {
     const fetchPost = async () => {
-      const res = await fetch('192.168.219.156:8080/diaries/read/${id}');
+      const res = await fetch(`http://192.168.219.156:8080/diaries/read/${id}`);
       const data = await res.json();
       setFormData({
         title: data.title,
         content: data.content,
-        emotion: data.emotion
+        emotion: data.emotion,
       });
     };
     fetchPost();
   }, [id]);
 
-  // 인풋 변경 처리
   const change = (e) => {
     setFormData({
       ...formData,
@@ -34,13 +32,12 @@ function PostEdit() {
     });
   };
 
-  // 수정 저장 요청
   const submit = async (e) => {
     e.preventDefault();
 
     try {
       const response = await fetch(
-        'http://localhost:포트번호/diaries/update/${id}',
+        `http://192.168.219.156:8080/diaries/update/${id}`,
         {
           method: 'PUT',
           headers: {
@@ -88,10 +85,15 @@ function PostEdit() {
             key={emo}
             type="button"
             className={
-              formData.emotion === emo ? 'selectEmotion selected' : 'selectEmotion'
+              formData.emotion === emo
+                ? 'selectEmotion selected'
+                : 'selectEmotion'
             }
             onClick={() =>
-              setFormData((prev) => ({ ...prev, emotion: emo }))
+              setFormData({
+                ...formData,
+                emotion: emo,
+              })
             }
           >
             {emo}
