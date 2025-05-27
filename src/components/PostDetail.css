@@ -1,4 +1,4 @@
-#post-detail {
+.post-detail {
   margin: 40px auto;
   padding: 30px;
   width: 700px;
@@ -7,20 +7,19 @@
   border-radius: 12px;
 }
 
-#post-detail-title {
+.post-detail-title {
   font-size: 27px;
   color: #96b4ff;
   margin-bottom: 10px;
   font-weight: bold;
 }
 
-#post-detail-date {
+.post-detail-date {
   font-size: 14px;
   color: #6c6c6c;
-  margin-bottom: 20px;
 }
 
-#post-detail-content {
+.post-detail-content {
   font-size: 17px;
   color: #6c6c6c;
   white-space: pre-line;
@@ -43,4 +42,8 @@
 .detail-button:hover {
   background-color: #94b3ff;
   color: white;
+}
+
+.post-detail-emotion {
+  font-size: 22px;
 }

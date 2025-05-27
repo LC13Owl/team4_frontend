@@ -11,7 +11,7 @@ function PostDetail() {
     const fetchPost = async () => {
       try {
         const res = await fetch(
-          'https://localhost:포트번호/diaries/read/${id}',
+          '192.168.219.156:8080/diaries/read/${id}',
           {
             headers: {
               'Content-Type': 'application/json',
@@ -61,10 +61,11 @@ function PostDetail() {
   if (!post) return <div>로딩 중...</div>;
 
   return (
-    <div id="post-detail">
-      <h2 id="post-detail-title">{post.title}</h2>
-      <p id="post-detail-date">{post.createdAt?.slice(0, 10)}</p>
-      <p id="post-detail-content">{post.content}</p>
+    <div className="post-detail">
+      <h2 className="post-detail-title">{post.title}</h2>
+      <p className="post-detail-date">{post.createdAt?.slice(0, 10)}</p>
+      <p className="post-detail-emotion">{post.emotion}</p>
+      <p className="post-detail-content">{post.content}</p>
       <button className="detail-button" onClick={() => navigate(-1)}>
         목록 보기
       </button>

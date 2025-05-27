@@ -1,5 +1,6 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import './PostDetail';
 
 function PostEdit() {
   const { id } = useParams();
@@ -7,16 +8,19 @@ function PostEdit() {
   const [formData, setFormData] = useState({
     title: '',
     content: '',
+    emotion: '',
   });
+  const emotions = ['😀', '😑', '😭', '😡'];
 
   // 기존 데이터 불러오기
   useEffect(() => {
     const fetchPost = async () => {
-      const res = await fetch('https://localhost:포트번호/diaries/read/${id}');
+      const res = await fetch('192.168.219.156:8080/diaries/read/${id}');
       const data = await res.json();
       setFormData({
         title: data.title,
         content: data.content,
+        emotion: data.emotion
       });
     };
     fetchPost();
@@ -77,6 +81,24 @@ function PostEdit() {
         onChange={change}
       />
       <br />
+
+      <div className="emotion">
+        {emotions.map((emo) => (
+          <button
+            key={emo}
+            type="button"
+            className={
+              formData.emotion === emo ? 'selectEmotion selected' : 'selectEmotion'
+            }
+            onClick={() =>
+              setFormData((prev) => ({ ...prev, emotion: emo }))
+            }
+          >
+            {emo}
+          </button>
+        ))}
+      </div>
+
       <div id="two-button">
         <button type="submit" className="form-button">
           저장

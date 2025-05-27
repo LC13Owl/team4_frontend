@@ -26,7 +26,7 @@ function PostForm({ onSubmit }) {
 
     try {
       const response = await fetch(
-        'https://localhost:포트번호/diaries/create',
+        '192.168.219.156:8080/diaries/create',
         {
           method: 'POST',
           headers: {
